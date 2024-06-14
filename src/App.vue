@@ -37,7 +37,7 @@
           <input type="text" v-model="todo.todo"/>
         </div>
         <div class="actions">
-          <button class="delete" @click="deleteTodo(todo)">Удалить</button>
+          <v-button class="delete" @click="deleteTodo(todo)">Удалить</v-button>
         </div>
       </div>
     </div>
