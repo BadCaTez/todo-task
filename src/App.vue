@@ -21,29 +21,36 @@
       </v-col>
     </v-row>
 
-    <v-list class="todo-section" lines="one">
+    <v-row class="todo-section" lines="one">
       <v-col class="todo-list">
         <h2 v-show="todos.length === 0">Нету дел на сегодня</h2>
 
-        <v-sheet class="d-flex flex-warp bg-surface-variant">
-        <v-sheet v-for="todo in todos" class="ma-2 pa-2"
+        <v-list class="mx-auto"
+        density="compact"
+        max-width="500">
+        <v-list-item 
+        v-for="todo in todos" class="mb-1 ma-10 bg-surface-variant"
         :class="`todo-item ${todo.done && 'done'}`"
-        :key="todo.id"
-        >
-        <v-label>
-          <v-checkbox type="checkbox" v-model="todo.done"/>
-        </v-label>
+        :key="todo.id">
 
-        <v-row class="todo-content">
-          <v-text-field type="text" variant="plain" v-model="todo.todo"/>
-        </v-row>
-        <v-row class="actions">
-          <v-button variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-button>
-        </v-row>
-      </v-sheet>
-    </v-sheet>
+          <v-row class="d-flex justify-start align-center mb-1 ma-1">
+            <v-checkbox type="checkbox" v-model="todo.done"/>
+          </v-row>
+
+          <v-row class="d-flex justify-center align-center mb-1 ma-1">
+           <v-text-field
+            type="text"
+            variant="plain" v-model="todo.todo"/>
+          </v-row>
+
+          <v-row class="d-flex justify-end mb-1 ma-1 align-center">
+            <v-button variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-button>
+          </v-row>
+
+        </v-list-item>
+    </v-list>
   </v-col>
-</v-list>
+</v-row>
   </v-container>
 </v-app>
 </template>
