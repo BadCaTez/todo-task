@@ -6,10 +6,7 @@
     </v-app-bar>
 
   <v-container class = "app" >
-
-    <v-col class="gretting_text">
-      <h3 class="title">Мой ToDo лист для WordPress</h3>
-    </v-col>
+    <h1>a</h1>
 
     <v-row class="input-section" >
       <v-col class="create-todo">
@@ -29,28 +26,22 @@
         density="compact"
         max-width="500">
         <v-list-item 
-        v-for="todo in todos" class="mb-1 ma-10 bg-surface-variant"
+        v-for="todo in todos" class="d-flex mb-2 bg-surface-variant d-row"
         :class="`todo-item ${todo.done && 'done'}`"
         :key="todo.id">
+        
+          <v-col class="d-flex ma-1 pa-1">
+            <v-checkbox type="checkbox" :label="`${todo.todo}`"/>
+          </v-col>
 
-          <v-row class="d-flex justify-start align-center mb-1 ma-1">
-            <v-checkbox type="checkbox" v-model="todo.done"/>
-          </v-row>
-
-          <v-row class="d-flex justify-center align-center mb-1 ma-1">
-           <v-text-field
-            type="text"
-            variant="plain" v-model="todo.todo"/>
-          </v-row>
-
-          <v-row class="d-flex justify-end mb-1 ma-1 align-center">
-            <v-button variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-button>
-          </v-row>
+          <v-col class="d-flex ma-1 pa-1">
+            <v-btn variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-btn>
+          </v-col>
 
         </v-list-item>
-    </v-list>
-  </v-col>
-</v-row>
+        </v-list>
+    </v-col>
+  </v-row>
   </v-container>
 </v-app>
 </template>
