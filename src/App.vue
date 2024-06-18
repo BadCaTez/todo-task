@@ -25,19 +25,21 @@
         <v-list class="mx-auto"
         density="compact"
         max-width="500">
-        <v-list-item 
-        v-for="todo in todos" class="d-flex mb-2 bg-surface-variant d-row"
+        <v-list-item class="bg-surface-variant rounded-e-lg mb-1"
+        v-for="todo in todos"
         :class="`todo-item ${todo.done && 'done'}`"
         :key="todo.id">
-        
-          <v-col class="d-flex ma-1 pa-1">
-            <v-checkbox type="checkbox" :label="`${todo.todo}`"/>
-          </v-col>
+          <v-row class="d-flex">
 
-          <v-col class="d-flex ma-1 pa-1">
-            <v-btn variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-btn>
-          </v-col>
+            <v-col class="d-flex">
+              <v-checkbox class="d-flex" type="checkbox" :label="`${todo.todo}`"/>
+            </v-col>
 
+            <v-col class="d-flex justify-end align-center ma-5 pa-1">
+              <v-btn variant="tonal" color="red" @click="deleteTodo(todo)">Удалить</v-btn>
+            </v-col>
+
+          </v-row>
         </v-list-item>
         </v-list>
     </v-col>
